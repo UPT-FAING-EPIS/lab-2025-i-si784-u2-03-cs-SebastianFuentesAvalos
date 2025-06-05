@@ -18,7 +18,9 @@ namespace Bank.Domain.Tests
             // Assert
             double actual = account.Balance;
             Assert.AreEqual(expected, actual, 0.001, "Account not debited correctly");
+        
         }
+
         [Test]
         public void Debit_WhenAmountIsLessThanZero_ShouldThrowArgumentOutOfRange()
         {
@@ -29,6 +31,7 @@ namespace Bank.Domain.Tests
             // Act and assert
             Assert.Throws<System.ArgumentOutOfRangeException>(() => account.Debit(debitAmount));
         }
+        
         [Test]
         public void Debit_WhenAmountIsMoreThanBalance_ShouldThrowArgumentOutOfRange()
         {
@@ -47,5 +50,34 @@ namespace Bank.Domain.Tests
                 StringAssert.Contains(BankAccount.DebitAmountExceedsBalanceMessage, e.Message);
             }
         }
+        [Test]
+        public void Credit_WithValidAmount_UpdatesBalance()
+        {
+            // Arrange
+            double beginningBalance = 11.99;
+            double creditAmount = 5.01;
+            double expected = 17.00;
+            BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance);
+
+            // Act
+            account.Credit(creditAmount);
+
+            // Assert
+            double actual = account.Balance;
+            Assert.AreEqual(expected, actual, 0.001, "Account not credited correctly");
+        }
+
+        [Test]
+        public void Credit_WhenAmountIsNegative_ShouldThrowArgumentOutOfRange()
+        {
+            // Arrange
+            double beginningBalance = 11.99;
+            double creditAmount = -5.00;
+            BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalance);
+
+            // Act & Assert
+            Assert.Throws<System.ArgumentOutOfRangeException>(() => account.Credit(creditAmount));
+        }
+
     }
 }
