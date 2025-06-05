@@ -1,0 +1,51 @@
+name: Release NuGet Package
+
+on:
+  push:
+    tags:
+      - 'v*'  # Se activa cuando haces un push con tag como v1.0.0
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Configurar .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Configurar NuGet source para GitHub Packages
+        run: |
+          dotnet nuget add source --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
+
+      - name: Restaurar dependencias
+        run: |
+          cd Bank
+          dotnet restore
+
+      - name: Compilar solución
+        run: |
+          cd Bank
+          dotnet build --configuration Release --no-restore
+
+      - name: Empaquetar NuGet (versión de matrícula)
+        run: |
+          cd Bank
+          dotnet pack Bank.Domain/Bank.Domain.csproj --configuration Release -p:PackageVersion=1.0.2022073902 -o ../nuget
+
+      - name: Publicar paquete en GitHub Packages
+        run: dotnet nuget push ./nuget/*.nupkg --source "github" --api-key ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Crear GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.2022073902
+          name: Release v1.0.2022073902
+          files: ./nuget/*.nupkg
