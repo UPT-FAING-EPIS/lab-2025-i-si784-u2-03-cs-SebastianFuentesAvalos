@@ -1,0 +1,35 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": ["Bank/**/*.csproj"],
+          "exclude": ["**/bin/**", "**/obj/**"]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": ["api/**.yml", "api/index.md"]
+      },
+      {
+        "files": ["Bank/docs/**.md", "Bank/docs/**/toc.yml", "Bank/toc.yml", "Bank/*.md"]
+      }
+    ],
+    "resource": [
+      {
+        "files": ["Bank/images/**"]
+      }
+    ],
+    "output": "_site",
+    "template": ["default"],
+    "globalMetadata": {
+      "_appName": "Bank Documentation",
+      "_appTitle": "Bank Documentation",
+      "_enableSearch": true
+    }
+  }
+}

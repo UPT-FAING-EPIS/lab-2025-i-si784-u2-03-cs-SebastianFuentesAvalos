@@ -1,0 +1,38 @@
+name: Publish Documentation
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x'
+        
+    - name: Install DocFx
+      run: dotnet tool install -g docfx
+      
+    - name: Restore dependencies
+      run: |
+        cd Bank
+        dotnet restore
+        
+    - name: Build project
+      run: |
+        cd Bank
+        dotnet build --configuration Release --no-restore
+        
+    - name: Generate Docs
+      run: docfx docfx.json
+      
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_site
