@@ -4,6 +4,22 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>1591</NoWarn>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <InformationalVersion>1.0.0+2022073902</InformationalVersion>
+    <Authors>SebastianFuentesAvalos</Authors>
+    <Company>UPT</Company>
+    <Description>Bank Domain Library - Sistema bancario con funcionalidades de cuenta</Description>
+    <PackageTags>bank;domain;account;finance</PackageTags>
+    <RepositoryUrl>https://github.com/UPT-FAING-EPIS/lab-2025-i-si784-u2-03-cs-SebastianFuentesAvalos.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/UPT-FAING-EPIS/lab-2025-i-si784-u2-03-cs-SebastianFuentesAvalos.git</PackageProjectUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
 </Project>
