@@ -1,0 +1,37 @@
+{
+  "Bank/docs/getting-started.html": {
+    "href": "Bank/docs/getting-started.html",
+    "title": "Getting Started | Bank Documentation",
+    "summary": "Getting Started"
+  },
+  "Bank/docs/introduction.html": {
+    "href": "Bank/docs/introduction.html",
+    "title": "Introduction | Bank Documentation",
+    "summary": "Introduction"
+  },
+  "Bank/index.html": {
+    "href": "Bank/index.html",
+    "title": "This is the HOMEPAGE. | Bank Documentation",
+    "summary": "This is the HOMEPAGE. Refer to Markdown for how to write markdown files. Quick Start Notes: Add images to the images folder if the file is referencing an image."
+  },
+  "api/Bank.Domain.BankAccount.html": {
+    "href": "api/Bank.Domain.BankAccount.html",
+    "title": "Class BankAccount | Bank Documentation",
+    "summary": "Class BankAccount Representa una cuenta bancaria de un cliente. Inheritance object BankAccount Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Namespace: Bank.Domain Assembly: Bank.Domain.dll Syntax public class BankAccount Constructors | Edit this page View Source BankAccount(string, double) Crea una nueva cuenta bancaria. Declaration public BankAccount(string customerName, double balance) Parameters Type Name Description string customerName Nombre del cliente. double balance Saldo inicial de la cuenta. Fields | Edit this page View Source DebitAmountExceedsBalanceMessage Mensaje mostrado cuando el monto del débito excede el saldo. Declaration public const string DebitAmountExceedsBalanceMessage = \"Debit amount exceeds balance\" Field Value Type Description string | Edit this page View Source DebitAmountLessThanZeroMessage Mensaje mostrado cuando el monto del débito es menor a cero. Declaration public const string DebitAmountLessThanZeroMessage = \"Debit amount is less than zero\" Field Value Type Description string Properties | Edit this page View Source Balance Saldo actual de la cuenta. Declaration public double Balance { get; } Property Value Type Description double | Edit this page View Source CustomerName Nombre del cliente. Declaration public string CustomerName { get; } Property Value Type Description string Methods | Edit this page View Source Credit(double) Acredita una cantidad al saldo de la cuenta. Declaration public void Credit(double amount) Parameters Type Name Description double amount Cantidad a acreditar. Exceptions Type Condition ArgumentOutOfRangeException Si el monto es negativo. | Edit this page View Source Debit(double) Debita una cantidad del saldo de la cuenta. Declaration public void Debit(double amount) Parameters Type Name Description double amount Cantidad a debitar. Exceptions Type Condition ArgumentOutOfRangeException Si el monto es mayor al saldo o menor que cero."
+  },
+  "api/Bank.Domain.Tests.BankAccountTests.html": {
+    "href": "api/Bank.Domain.Tests.BankAccountTests.html",
+    "title": "Class BankAccountTests | Bank Documentation",
+    "summary": "Class BankAccountTests Inheritance object BankAccountTests Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Namespace: Bank.Domain.Tests Assembly: Bank.Domain.Tests.dll Syntax public class BankAccountTests Methods | Edit this page View Source Credit_WhenAmountIsNegative_ShouldThrowArgumentOutOfRange() Declaration [Test] public void Credit_WhenAmountIsNegative_ShouldThrowArgumentOutOfRange() | Edit this page View Source Credit_WithValidAmount_UpdatesBalance() Declaration [Test] public void Credit_WithValidAmount_UpdatesBalance() | Edit this page View Source Debit_WhenAmountIsLessThanZero_ShouldThrowArgumentOutOfRange() Declaration [Test] public void Debit_WhenAmountIsLessThanZero_ShouldThrowArgumentOutOfRange() | Edit this page View Source Debit_WhenAmountIsMoreThanBalance_ShouldThrowArgumentOutOfRange() Declaration [Test] public void Debit_WhenAmountIsMoreThanBalance_ShouldThrowArgumentOutOfRange() | Edit this page View Source Debit_WithValidAmount_UpdatesBalance() Declaration [Test] public void Debit_WithValidAmount_UpdatesBalance()"
+  },
+  "api/Bank.Domain.Tests.html": {
+    "href": "api/Bank.Domain.Tests.html",
+    "title": "Namespace Bank.Domain.Tests | Bank Documentation",
+    "summary": "Namespace Bank.Domain.Tests Classes BankAccountTests"
+  },
+  "api/Bank.Domain.html": {
+    "href": "api/Bank.Domain.html",
+    "title": "Namespace Bank.Domain | Bank Documentation",
+    "summary": "Namespace Bank.Domain Classes BankAccount Representa una cuenta bancaria de un cliente."
+  }
+}
